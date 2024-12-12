@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ('partials/head') %>
+</head>
+<body>
+    <header>
+        <div id="logo">
+            <h1>KAZ </h1>
+            <h2>Handmade Shop</h2>
+            <p>Your one-stop shop for handmade items</p>
+        </div>
+        <div class="nav">
+        <ul id="nav">
+            <li><a href="/">Home</a></li>
+            <li><a href="/display">Items</a></li>
+            <li><a href="/cart">Cart</a></li>
+            <li><a href="/review">Review</a></li>
+        </ul>
+        </div>
+    </header>
+    <section class="item-details">
+        <div class="slideshow-container">
+            <div class="mySlides fade">
+                <img src="../img/bracelet3.webp" alt="bracelet" class="collage-image">
+            </div>
+            <div class="mySlides fade">
+                <img src="../img/bracelet3-1.webp" alt="bracelet" class="collage-image">
+            </div>
+            <div class="mySlides fade">
+                <img src="../img/bracelet3-2.webp" alt="bracelet" class="collage-image">
+            </div>
+            <!-- Navigation buttons -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <h2>Beaded Flower Bracelet</h2>
+        <h3>Product details</h3>
+         <p>Personalised Name Custom Beaded Word Friendship Bracelet | wedding present hen party Heishi | Mama Mum Mummy Daddy | Womens Manifestation</p>
+        <p>Price:$13.59</p>
+        <button onclick="addToCart('Beaded Flower Bracelet', 13.59)">Add to Cart</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 KAZ Handmade Shop. All Rights Reserved.</p>
+    </footer>
+    <script src="css/script.js"></script>
+
+    <script src="css/slide.js"></script>
+</body>
+</html>

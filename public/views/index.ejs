@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <%- include ('partials/head') %>
+</head>
+<body>
+    <header>
+        <div id="logo">
+            <h1>KAZ </h1>
+            <h2>Handmade Shop</h2>
+            <p>Your one-stop shop for handmade items</p>
+        </div>
+        <div class="nav">
+        <ul id="nav">
+            <li><a href="/">Home</a></li>
+            <li><a href="/display">Items</a></li>
+            <li><a href="/cart">Cart</a></li>
+            <li><a href="/review">Review</a></li>
+        </ul>
+        </div>
+    </header>
+     <!-- Popular Items Section -->
+    <section class="popular-items">
+        <h1>Popular Items</h1>
+        <div id="itemsContainer">
+            <div class="item">
+                <a href="/necklace"><img src="../img/necklace1.jpg" alt="Necklace"></a>
+                <h3>Handmade Necklace</h3>
+                <p>US$15.99</p>
+                <button onclick="addToCart('handmade necklace', 15.99, 'itemQuantity1')">Add to Cart</button>
+            </div>
+            <div class="item">
+                <a href="/bracelect"><img src="../img/bracelet1.1.jpg" alt="bracelet"></a>
+                <h3>Bracelet Curb Chain</h3>
+                <p>Price: $21.32</p>
+                <button onclick="addToCart('Bracelet Curb Chain', 21.32, 'itemQuantity1')">Add to Cart</button>
+            </div>
+            <div class="item">
+                <a href="/ring2"><img src="../img/ring2.webp" alt="ring"></a>
+                <h3>Spinning Rings</h3>
+                <p>Price: $6.99</p>
+                <button onclick="addToCart('Spinning Rings', 6.99, 'itemQuantity1')">Add to Cart</button>
+            </div>
+            </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <h2>About Us</h2>
+        <p>Welcome to KAZ Handmade Shop, where every item is crafted with love!</p>
+    </section>
+
+    <!-- Contact Info Section -->
+    <section class="contact-info">
+        <h2>Contact Info</h2>
+        <p>Email: kazshop@example.com</p>
+        <p>Phone: (123) 456-7890</p>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 KAZ Handmade Shop. All Rights Reserved.</p>
+    </footer>
+
+    <script src="css/script.js"></script>
+</body>
+</html>

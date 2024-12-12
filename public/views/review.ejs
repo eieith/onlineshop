@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ('partials/head') %>
+  
+</head>
+<body>
+    <header>
+        <div id="logo">
+            <h1>KAZ </h1>
+            <h2>Handmade Shop</h2>
+            <p>Your one-stop shop for handmade items</p>
+        </div>
+        <div class="nav">
+        <ul id="nav">
+            <li><a href="/">Home</a></li>
+            <li><a href="/display">Items</a></li>
+            <li><a href="/cart">Cart</a></li>
+            <li><a href="/review">Review</a></li>
+        </ul>
+        </div>
+    </header>
+    <div id="reviewPage">
+        <h1>Customer Reviews</h1>
+        <div id="reviewsContainer">
+            <p> leave a review!</p>
+        </div>
+        <textarea id="reviewInput" placeholder="Write your review here..." rows="4"></textarea>
+        <button onclick="submitReview()">Submit Review</button>
+    </div>
+    
+
+    <footer>
+        <p>&copy; 2024 KAZ Handmade Shop</p>
+    </footer>
+
+    <script src="css/script.js"></script>
+</body>
+</html>

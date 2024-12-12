@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ('partials/head') %>
+</head>
+<body>
+    <header>
+        <div id="logo">
+            <h1>KAZ </h1>
+            <h2>Handmade Shop</h2>
+            <p>Your one-stop shop for handmade items</p>
+        </div>
+        <div class="nav">
+        <ul id="nav">
+            <li><a href="/">Home</a></li>
+            <li><a href="/display">Items</a></li>
+            <li><a href="/cart">Cart</a></li>
+            <li><a href="/review">Review</a></li>
+        </ul>
+        </div>
+    </header>
+    <section class="item-details">
+        <div class="slideshow-container">
+            <div class="mySlides fade">
+                <img src="../img/ring.webp" alt="ring" class="collage-image">
+            </div>
+            <div class="mySlides fade">
+                <img src="../img/ring1.1.webp" alt="ring" class="collage-image">
+            </div>
+            <div class="mySlides fade">
+                <img src="../img/ring1.webp" alt="ring" class="collage-image">
+            </div>
+            <!-- Navigation buttons -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <h2>925 Sterling Silver Ring</h2>
+        <h3>Product details</h3>
+        <p>925 Sterling Silver Ring, Personalized Love Hug Ring, Engraved Hand Ring, Couple Lover Ring, Cute Gift, Adjustable Minimalist Hugging Ring</p>
+        <p>Price: $16.79</p>
+        <button onclick="addToCart('925 Sterling Silver Ring', 16.79 )">Add to Cart</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 KAZ Handmade Shop. All Rights Reserved.</p>
+    </footer>
+    <script src="css/script.js"></script>
+
+    <script src="css/slide.js"></script>
+</body>
+</html>
