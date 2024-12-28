@@ -1,33 +1,14 @@
 
-// Global cart array and total
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
-let total = cart.reduce((acc, item) => acc + item.price, 0);
 
-// Add item to cart
-function addToCart(name, price) {
-    const item = { name, price };
-    cart.push(item);
+function addToCart(name, price, id) {
+    // Retrieve existing cart from localStorage or initialize a new one
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.push({ name, price, id });
+
+    // Save the updated cart to localStorage
     localStorage.setItem('cart', JSON.stringify(cart));
-    alert(`${name} added to cart!`);
-}
 
-// Update cart display
-function updateCart() {
-    const cartItems = document.getElementById('cartItems');
-    const cartTotal = document.getElementById('cartTotal');
-
-    // Clear current cart items
-    cartItems.innerHTML = '';
-    
-    // Populate cart items
-    cart.forEach((item, index) => {
-        const li = document.createElement('li');
-        li.textContent = `${item.name} - $${item.price.toFixed(2)}`;
-        cartItems.appendChild(li);
-    });
-
-    // Update total
-    cartTotal.textContent = cart.reduce((acc, item) => acc + item.price, 0).toFixed(2);
+    console.log(`Added to cart: ${name}, Price: $${price}, ID: ${id}`);
 }
 
 // Generate receipt

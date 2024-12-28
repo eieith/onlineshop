@@ -1,145 +1,118 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
-    <%- include ('partials/head') %>
+    <%- include('partials/head') %>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/display.css">
+    <title>Home | KAZ Handmade Shop</title>
 </head>
+<body>
+    <!-- Header Section -->
     <header>
         <div id="logo">
-            <h1>KAZ </h1>
+            <h1>KAZ</h1>
             <h2>Handmade Shop</h2>
             <p>Your one-stop shop for handmade items</p>
         </div>
         <div class="nav">
-        <ul id="nav">
-            <li><a href="/">Home</a></li>
-            <li><a href="/display">Items</a></li>
-            <li><a href="/cart">Cart</a></li>
-            <li><a href="/review">Review</a></li>
-        </ul>
+            <ul id="nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="/display">Items</a></li>
+                <li><a href="/cart">Cart</a></li>
+                <li><a href="/review">Review</a></li>
+            </ul>
         </div>
     </header>
-    
+
     <!-- Search Bar Section -->
     <section class="search-bar">
-        <input type="text" id="search" placeholder="Search items...">
+        <input type="text" id="search" placeholder="Search popular items...">
     </section>
 
-    <!-- Item List Section -->
-     <div id="itemsContainer">
-    <div class="item">
-        <a href="/necklace"><img src="../img/necklace1.jpg" alt="Necklace"></a>
-        <h3>Name Necklace</h3>
-        <p>US$15.99</p>
-        <button onclick="addToCart('Name necklace', 15.99, 'itemQuantity1')">Add to Cart</button>
-    </div>
-        <div class="item">
-            <a href="/bracelect"><img src="../img/bracelet1.1.jpg" alt="bracelet"></a>
-            <h3>Bracelet Curb Chain</h3>
-            <p>Price: $21.32</p>
-            <button onclick="addToCart('Bracelet Curb Chain', 21.32, 'itemQuantity1')">Add to Cart</button>
-        </div>
-        <div class="item">
-            <a href="/ring"><img src="../img/ring1.webp" alt="ring"></a>
-            <h3>Silver Ring</h3>
-            <p>Price:$16.79</p>
-            <button onclick="addToCart('Silver Ring', 16.79, 'itemQuantity1')">Add to Cart</button>
-        </div>
-        <div class="item">
-            <a href="/necklace2"><img src="../img/necklace2.jpg" alt="Necklace"></a>
-            <h3>Heart Locket Charm Necklace</h3>
-            <p>Price: $14.18</p>
-            <button onclick="addToCart('Heart Locket Charm Necklace', 14.18, 'itemQuantity1')">Add to Cart</button>
-        </div>
-        
-        <div class="item">
-            <a href="/bracelect2"><img src="../img/bracelet2.webp" alt="bracelet"></a>
-            <h3>Friendship Bracelet</h3>
-            <p>Price: $9.05</p>
-            <button onclick="addToCart('Friendship Bracelet',9.05, 'itemQuantity1')">Add to Cart</button>
-        </div>
-        <div class="item">
-            <a href="/ring2"><img src="../img/ring2.webp" alt="ring"></a>
-            <h3>Spinning Rings</h3>
-            <p>Price: $6.99</p>
-            <button onclick="addToCart('Spinning Rings', 6.99, 'itemQuantity1')">Add to Cart</button>
-        </div>
-        <div class="item">
-            <a href="/necklace3"><img src="../img/necklace3.jpg" alt="Necklace"></a>
-            <h3>Sun and Moon Necklace</h3>
-            <p>Price:$17.30 </p>
-            <button onclick="addToCart('Sun and Moon Necklace', 17.30, 'itemQuantity1')">Add to Cart</button>
-        </div>
-       
-        <div class="item"> 
-            <a href="/bracelect3"><img src="../img/bracelet3.webp" alt="bracelet"></a>
-            <h3>Beaded Flower Bracelet</h3>
-            <p>Price: $13.59</p>
-            <button onclick="addToCart('Beaded Flower Bracelet', 13.59, 'itemQuantity1')">Add to Cart</button>
-        </div>
-        <div class="item">
-            <a href="/ring3"><img src="../img/ring3.webp" alt="ring"></a>
-            <h3>Stainless Steel Ring</h3>
-            <p>Price: $217.90</p>
-            <button onclick="addToCart('Stainless Steel Ring',217.90, 'itemQuantity1')">Add to Cart</button>
-        </div>
-        <div class="item">
-            <a href="/necklace4"><img src="../img/necklace4.avif" alt="Necklace"></a>
-            <h3>Heart and Sword Necklace</h3>
-            <p>Price:24.13</p>
-            <button onclick="addToCart('Heart and Sword Necklace',24.13, 'itemQuantity1')">Add to Cart</button>
-        </div>
-        
-        <div class="item">
-            <a href="/necklace5"><img src="../img/necklace5.webp" alt="Necklace"></a>
-            <h3>Silver Cross Necklace</h3>
-            <p>Price:27.10</p>
-            <button onclick="addToCart('Silver Cross Necklace', 27.10, 'itemQuantity1')">Add to Cart</button>
-        </div>
-        <div class="item">
-            <a href="/ring4"><img src="../img/ring5.webp" alt="Necklace"></a>
-            <h3>Orion Nebula Ring</h3>
-            <p>Price: $60.79</p>
-            <button onclick="addToCart('Orion Nebula Ring', 60.79, 'itemQuantity1')">Add to Cart</button>
-        </div>
-        <div class="item">
-            <a href="/bracelect4"><img src="../img/bracelet4.webp" alt="bracelet"></a>
-            <h3>Beaded Daisy Flower Bracelet</h3>
-            <p>Price: $16.50</p>
-            <button onclick="addToCart('Beaded Daisy Flower Bracelet', 16.50, 'itemQuantity1')">Add to Cart</button>
-        </div>
-        <div class="item">
-            <a href="/bracelet5"><img src="../img/bracelet5.webp" alt="bracelet"></a>
-            <h3>Fairy Kei Stars Bracelet</h3>
-            <p>Price:$4.00</p>
-            <button onclick="addToCart('Fairy Kei Stars Bracelet', 4.00, 'itemQuantity1')">Add to Cart</button>
-        </div>
-        <div class="item">
-            <a href="/necklace6"><img src="../img/necklace6.webp" alt="Necklace"></a>
-            <h3>Family Name Necklace</h3>
-            <p>Price:$19.20</p>
-            <button onclick="addToCart('Family Name Necklace',19.20, 'itemQuantity1')">Add to Cart</button>
+    <!-- Popular Items Section -->
+    <main id="itemsContainer">
+        <% if (products && products.length > 0) { %>
+            <div class="items-grid">
+                <% products.forEach(product => { %>
+                    <div class="product-item">
+                        <img src="<%= product.img_url %>" alt="<%= product.name %>" onclick="showItemDetails('<%= product.name %>', '<%= product.descript %>', '<%= product.price %>', '<%= product.img_url %>')"/>
+                        <h3><%= product.name %></h3>
+                        <p><strong>Price:</strong> $<%= product.price %></p>
+                        <!-- Add to Cart Button -->
+<button onclick='addToCart("<%= product.name %>", "<%= product.price %>", "<%= product.id %>")'>
+    Add to Cart
+</button>
+                    </div>
+                <% }); %>
+            </div>
+        <% } else { %>
+            <p>No popular items available at the moment. Please check back later!</p>
+        <% } %>
+    </main>
+
+    <!-- Item Details Modal -->
+    <div id="itemDetailsModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="itemName"></h2>
+            <img id="itemImage" src="" alt="Item Image" />
+            <p id="itemDescription"></p>
+            <p><strong>Price:</strong> $<span id="itemPrice"></span></p>
         </div>
     </div>
+
+   
+
+    <!-- Footer Section -->
     <footer>
         <p>&copy; 2024 KAZ Handmade Shop. All Rights Reserved.</p>
     </footer>
 
+    <!-- JavaScript -->
     <script>
+       
+
         // Search bar functionality
         document.getElementById('search').addEventListener('input', function (e) {
-            const searchValue = e.target.value.toLowerCase().trim(); // Normalize input
-            const items = document.querySelectorAll('.item'); // Get all items
+            const searchValue = e.target.value.toLowerCase().trim();
+            const items = document.querySelectorAll('.product-item');
 
             items.forEach(item => {
-                const itemName = item.querySelector('h3').innerText.toLowerCase(); // Get item name
-                if (itemName.includes(searchValue)) {
-                    item.style.display = ''; // Show item if it matches
-                } else {
-                    item.style.display = 'none'; // Hide item if it doesn't match
-                }
+                const itemName = item.querySelector('h3').innerText.toLowerCase();
+                item.style.display = itemName.includes(searchValue) ? '' : 'none';
             });
         });
+
+
+        // Show Item Details in a Modal
+        function showItemDetails(name, description, price, imgUrl) {
+            document.getElementById('itemName').innerText = name;
+            document.getElementById('itemDescription').innerText = description;
+            document.getElementById('itemPrice').innerText = price;
+            document.getElementById('itemImage').src = imgUrl;
+            document.getElementById('itemDetailsModal').style.display = 'block';
+        }
+
+        // Close Item Modal
+        function closeModal() {
+            document.getElementById('itemDetailsModal').style.display = 'none';
+        }
+
+        // Close modal when clicked outside of the modal content
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('itemDetailsModal')) {
+                closeModal();
+            }
+            if (event.target == document.getElementById('cartModal')) {
+                closeCart();
+            }
+        }
+        function addToCart(name, price, id) {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push({ name, price, id });
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert(`${name} has been added to your cart!`);
+        }
     </script>
-    <script src="css/script.js"></script>
 </body>
 </html>

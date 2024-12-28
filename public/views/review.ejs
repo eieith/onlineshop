@@ -2,38 +2,93 @@
 <html lang="en">
 <head>
     <%- include ('partials/head') %>
-  
+    <link rel="stylesheet" href="/css/display.css">
+    <title>Customer Reviews | KAZ Handmade Shop</title>
 </head>
 <body>
     <header>
         <div id="logo">
-            <h1>KAZ </h1>
+            <h1>KAZ</h1>
             <h2>Handmade Shop</h2>
             <p>Your one-stop shop for handmade items</p>
         </div>
         <div class="nav">
-        <ul id="nav">
-            <li><a href="/">Home</a></li>
-            <li><a href="/display">Items</a></li>
-            <li><a href="/cart">Cart</a></li>
-            <li><a href="/review">Review</a></li>
-        </ul>
+            <ul id="nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="/display">Items</a></li>
+                <li><a href="/cart">Cart</a></li>
+                <li><a href="/review" class="active">Review</a></li>
+            </ul>
         </div>
     </header>
-    <div id="reviewPage">
+    <main id="reviewPage">
         <h1>Customer Reviews</h1>
         <div id="reviewsContainer">
-            <p> leave a review!</p>
+            <h2>What our customers are saying:</h2>
+            <ul id="reviewsList"></ul>
         </div>
-        <textarea id="reviewInput" placeholder="Write your review here..." rows="4"></textarea>
-        <button onclick="submitReview()">Submit Review</button>
-    </div>
-    
-
+        <div id="reviewForm">
+            <h3>Leave a Review</h3>
+            <textarea id="reviewInput" placeholder="Write your review here..." rows="4"></textarea>
+            <button id="submitReviewBtn">Submit Review</button>
+        </div>
+    </main>
     <footer>
         <p>&copy; 2024 KAZ Handmade Shop</p>
     </footer>
 
-    <script src="css/script.js"></script>
+    <script>
+        // Retrieve stored reviews or initialize an empty array
+        let reviews = JSON.parse(localStorage.getItem('reviews')) || [];
+
+        // Function to display reviews
+        function displayReviews() {
+            const reviewsList = document.getElementById('reviewsList');
+            reviewsList.innerHTML = '';
+
+            if (reviews.length === 0) {
+                reviewsList.innerHTML = '<li>No reviews yet. Be the first to leave one!</li>';
+                return;
+            }
+
+            reviews.forEach((review, index) => {
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `
+                    ${review} 
+                    <button onclick="deleteReview(${index})" class="deleteBtn">Delete</button>
+                `;
+                reviewsList.appendChild(listItem);
+            });
+        }
+
+        // Function to handle review submission
+        function submitReview() {
+            const reviewInput = document.getElementById('reviewInput');
+            const reviewText = reviewInput.value.trim();
+
+            if (!reviewText) {
+                alert('Please write a review before submitting!');
+                return;
+            }
+
+            reviews.push(reviewText);
+            localStorage.setItem('reviews', JSON.stringify(reviews));
+            reviewInput.value = '';
+            displayReviews();
+        }
+
+        // Function to delete a review
+        function deleteReview(index) {
+            reviews.splice(index, 1);
+            localStorage.setItem('reviews', JSON.stringify(reviews));
+            displayReviews();
+        }
+
+        // Attach event listener to the submit button
+        document.getElementById('submitReviewBtn').addEventListener('click', submitReview);
+
+        // Display reviews on page load
+        displayReviews();
+    </script>
 </body>
 </html>
