@@ -3,7 +3,9 @@ import {
      showProducts,
     reviewHandler,
     getPopularItemsHandler,
-    cartHandler,
+    addToCartHandler,
+    checkoutHandler,
+    getAllCartItemsHandler
    
    
 } from './handler';
@@ -11,7 +13,15 @@ import {
 const router = Router();
 router.get('/', getPopularItemsHandler); 
 router.get('/display', showProducts);
-router.get('/cart', cartHandler);
+// Add item to cart
+router.post('/cart', addToCartHandler);
+
+// Checkout the cart
+router.post('/checkout', checkoutHandler);
+
+// Get all items in the cart
+router.get('/cart', getAllCartItemsHandler);
+
 router.get('/review', reviewHandler);
 
 export default router;

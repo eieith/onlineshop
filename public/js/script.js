@@ -1,54 +1,75 @@
 
 
-function addToCart(name, price, id) {
-    // Retrieve existing cart from localStorage or initialize a new one
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    cart.push({ name, price, id });
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-    // Save the updated cart to localStorage
-    localStorage.setItem('cart', JSON.stringify(cart));
+// Function to display cart items
+function displayCart() {
+    const cartItemsList = document.getElementById('cartItemsList');
+    const totalPriceElement = document.getElementById('totalPrice');
 
-    console.log(`Added to cart: ${name}, Price: $${price}, ID: ${id}`);
-}
+    // Clear existing items
+    cartItemsList.innerHTML = '';
+    let total = 0;
 
-// Generate receipt
-function generateReceipt() {
-    const receiptDetails = document.getElementById('receiptDetails');
-    const receipt = document.getElementById('receipt');
-
-    let receiptContent = `<strong>Date:</strong> ${new Date().toLocaleString()}<br>`;
-    receiptContent += '<strong>Items:</strong><br>';
-
+    // Populate items
     cart.forEach((item, index) => {
-        receiptContent += `${index + 1}. ${item.name} - $${item.price.toFixed(2)}<br>`;
+        const listItem = document.createElement('li');
+        listItem.innerText = `${item.name} - $${item.price}`;
+        cartItemsList.appendChild(listItem);
+        total += parseFloat(item.price);
     });
 
-    receiptContent += `<br><strong>Total:</strong> $${total.toFixed(2)}<br>`;
-    receiptContent += `<strong>Thank you for shopping at KAZ Handmade Shop!</strong>`;
-
-    receiptDetails.innerHTML = receiptContent;
-    receipt.style.display = 'block';
+    totalPriceElement.innerText = total.toFixed(2);
 }
 
-// Checkout
+// Checkout function
 function checkout() {
     if (cart.length === 0) {
-        alert('Your cart is empty!');
+        alert('Your cart is empty! Add some items before checkout.');
         return;
     }
 
-    generateReceipt();
-    alert('Thank you for your purchase!');
-    cart = [];
-    total = 0;
-    localStorage.removeItem('cart');
-    updateCart();
+    // Generate receipt
+    const receiptItemsList = document.getElementById('receiptItemsList');
+    const receiptTotalPrice = document.getElementById('receiptTotalPrice');
+
+    receiptItemsList.innerHTML = '';
+    let total = 0;
+
+    cart.forEach((item) => {
+        const listItem = document.createElement('li');
+        listItem.innerText = `${item.name} - $${item.price}`;
+        receiptItemsList.appendChild(listItem);
+        total += parseFloat(item.price);
+    });
+
+    receiptTotalPrice.innerText = total.toFixed(2);
+
+    // Show receipt modal
+    document.getElementById('receiptModal').style.display = 'block';
+
+    // Clear cart
+    clearCart();
 }
 
-// Initialize cart page
-if (document.getElementById('cartItems')) {
-    updateCart();
+// Clear cart function
+function clearCart() {
+    localStorage.removeItem('cart'); // Remove from localStorage
+    cart = []; // Clear array
+    displayCart(); // Update the UI
 }
+
+// Close receipt modal
+function closeReceipt() {
+    document.getElementById('receiptModal').style.display = 'none';
+}
+
+// Attach event listeners
+document.getElementById('checkoutBtn').addEventListener('click', checkout);
+document.getElementById('clearCartBtn').addEventListener('click', clearCart);
+
+// Display the cart on page load
+displayCart();
 // Item details view
 function showItemDetails(itemName, itemImage, itemDescription, itemPrice) {
     const detailsContainer = document.getElementById('itemDetails');
@@ -76,32 +97,4 @@ function closeItemDetails() {
     const itemList = document.getElementById('itemsContainer');
     if (detailsContainer) detailsContainer.style.display = 'none';
     if (itemList) itemList.style.display = 'block';
-}
-// Review submission functionality
-function submitReview() {
-    const reviewInput = document.getElementById('reviewInput');
-    if (!reviewInput) {
-        console.error('Review input element not found.');
-        return;
-    }
-
-    const reviewText = reviewInput.value.trim();
-    if (reviewText === '') {
-        alert('Please write a review before submitting!');
-        return;
-    }
-
-    const reviewsContainer = document.getElementById('reviewsContainer');
-    if (!reviewsContainer) {
-        console.error('Reviews container not found.');
-        return;
-    }
-
-    const newReview = document.createElement('p');
-    newReview.innerText = reviewText;
-    newReview.classList.add('review');
-    reviewsContainer.appendChild(newReview);
-
-    reviewInput.value = ''; // Clear input
-    alert('Thank you for your review!');
 }
